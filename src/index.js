@@ -1,17 +1,51 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom';
+import faker from 'faker';
+import CommentDetail from './CommentDetail';
+import ApprovalCard from './ApprovalCard';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+   
+    return (
+    <div className="ui container comments"> 
+     <ApprovalCard/>
+     <CommentDetail  
+            author="James" 
+            timeAgo="Today at 1:30pm"
+            wordUse="We trust in you" 
+            pic={faker.image.avatar()}  
+         />
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+        <CommentDetail  
+            author="Will" 
+            timeAgo="Today at 2:30pm"  
+            wordUse="Hard work over everything"
+             pic={faker.image.avatar()}
+         />
+
+        <CommentDetail
+            author="Jeff"
+            timeAgo="Today at 3:30pm"  
+            wordUse="Last man standing" 
+            pic={faker.image.avatar()}
+          />
+
+        <CommentDetail 
+            author="Jenae" 
+            timeAgo="Today at 4:30pm" 
+            wordUse="We are Army Strong"
+             pic={faker.image.avatar()}
+         />
+
+        <CommentDetail 
+            author="Brian"
+            timeAgo="Today at 5:30pm" 
+            wordUse="Laziness amounts to nothingness" 
+            pic={faker.image.avatar()}
+         />
+    </div>
+
+    );
+};
+
+ReactDom.render(<App />, document.querySelector('#root'))
